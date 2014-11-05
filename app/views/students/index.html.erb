@@ -1,0 +1,22 @@
+<h1>Good Morning TEACHER'S NAME</h1>
+<table>
+<thead>
+  <tr>
+   <th>Your Students</th>
+  </tr>
+</thead>
+<%@students.each do |s| %>
+   <tr>
+   <td><strong>Last name</strong><%= s.lastname %></td>
+   <td><strong>First name</strong><%= s.firstname %></td>
+   <td><strong>Class No</strong><%= s.classno %></td>
+   <td><strong>Grade Level</strong><%= s.grade %></td>
+   <td><strong>Notes</strong><%= s.notes %></td>
+
+ <td><%= link_to 'More', show_path(:student => s.id) %></td>
+ <td><%= link_to 'Delete Student', delete_path(:student => s.id) %></td>
+   </tr>
+<% end %>
+</table>
+
+<%= link_to 'Add a Student', new_path %>
