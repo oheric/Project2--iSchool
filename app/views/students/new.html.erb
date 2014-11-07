@@ -1,8 +1,5 @@
 <%= form_for(@student, :url => {:action => :new_students, :controller => :students}) do |f| %>
 
-  <!--For now we have simplified this form by removing all the built in error handling, 
-  in reality when we are bosses we'll probably handle the display of the errors with some
-  fancy javascript or angular, but for now we keep things simple and clear -->
 
   <div class="field">
     <%= f.label :firstname %><br>

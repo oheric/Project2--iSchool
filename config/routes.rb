@@ -1,5 +1,16 @@
 Rails.application.routes.draw do
   root 'home#index'
+  
+  resource :sessions, only: [:new, :destroy, :create]
+  resource :photos
+  resources :users
+
+  get 'sessions/new' => 'sessions#new', as: :new_session
+
+  delete 'sessions' => 'session#destroy', as: :session
+
+  get 'sessions/create' => 'sessions#create'
+
 
   get 'students/index', as: :students
 
@@ -10,12 +21,11 @@ Rails.application.routes.draw do
 
   get 'students/show' => 'students#show', as: :show
   
-  get 'students/edit'
+  get 'students/edit' => 'students#edit', as: :edit
 
-  get 'students/update'
+  patch 'students/update' => 'students#update', as: :update
 
-  delete 'students/delete' => 'students#destroy', as: :delete
-
+  delete 'students/destroy' => 'students#destroy', as: :delete 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

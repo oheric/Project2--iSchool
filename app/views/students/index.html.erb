@@ -14,7 +14,9 @@
    <td><strong>Notes</strong><%= s.notes %></td>
 
  <td><%= link_to 'More', show_path(:student => s.id) %></td>
- <td><%= link_to 'Delete Student', delete_path(:student => s.id) %></td>
+ <td><%= link_to 'Edit', edit_path(:student => s.id) %></td>
+ <td><%= link_to 'Delete Student', delete_path(:student => s.id), method: :delete, data: {confirm: 'Are you sure?'} %></td>
+
    </tr>
 <% end %>
 </table>
