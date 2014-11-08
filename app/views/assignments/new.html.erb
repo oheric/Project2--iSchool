@@ -1,0 +1,16 @@
+<%= form_for(@assignment, :url => {:action => :new_assignments, :controller => :assignments}) do |f| %>
+
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :score %><br>
+    <%= f.text_field :score %>
+  </div><br>
+
+  <div class="actions"><br>
+    <%= f.submit %>
+  </div>
+<% end %>

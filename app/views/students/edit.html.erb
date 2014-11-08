@@ -22,10 +22,22 @@
   <div class="field">
     <%= f.label :notes %><br>
     <%= f.text_area :notes %>
+  </div><br>
+<%= link_to 'Add Photo', new_photos_path %><br>
+  <!-- NEW STUFF for MONGO MANY TO MANY -->
+  <div class="field">
+    Here is some data from the parent that can be edited.
+    Some_data: <%= f.text_field :firstname, placeholder: "Parent Field" %><br><br>
+
+    And here is some data from the child record that can be edited:  
+    <%= f.collection_check_boxes :assignment_ids, Assignment.all, :id, :name %>
+    <br><br>
   </div>
+
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Save changes" %>
   </div>
-<% end %>
+<% end %><br>
+
 
 <%= link_to 'Back', students_path %>

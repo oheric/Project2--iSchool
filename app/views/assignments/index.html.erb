@@ -1,0 +1,24 @@
+<h1>Good Morning TEACHER'S NAME</h1>
+<table>
+<thead>
+  <tr>
+   <th>Assignments</th>
+  </tr>
+</thead>
+<%@assignments.each do |a| %>
+   <tr>
+   <td><strong>Assignment Name</strong><%= a.name %></td>
+   <td><strong>Score</strong><%= a.score %></td>
+   <td><strong>Notes</strong><%= a.notes %></td>
+   
+
+ <td><%= link_to 'More', show_assignments_path(:assignment => a.id) %></td>
+ <td><%= link_to 'Edit', edit_assignments_path(:assignment => a.id) %></td>
+ <td><%= link_to 'Delete Assignment', delete_assignments_path(:assignment => a.id), method: :delete, data: {confirm: 'Are you sure?'} %></td>
+
+   </tr>
+<% end %>
+</table>
+
+<%= link_to 'Create an assignment', new_assign_path %><br>
+<%= link_to 'Back to Students', students_path %>

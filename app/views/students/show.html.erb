@@ -14,7 +14,11 @@
         <td><%=@student.notes %></td>
       </tr>
 
-</table>
+</table>  
+
+<h3>data from the parent record</h3>
+<%= @student.firstname%>
+<p>Here is data from all the detail records that match: <%=@join_list%></p>
 
 <%= link_to 'Back', students_path %>
 <%= link_to 'Edit', edit_path(:student => @student.id) %>

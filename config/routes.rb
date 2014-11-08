@@ -21,11 +21,26 @@ Rails.application.routes.draw do
 
   get 'students/show' => 'students#show', as: :show
   
-  get 'students/edit' => 'students#edit', as: :edit
+  get 'students/:student/edit' => 'students#edit', as: :edit
 
-  patch 'students/update' => 'students#update', as: :update
+  patch 'students/:student' => 'students#update'
 
   delete 'students/destroy' => 'students#destroy', as: :delete 
+
+  
+  get 'assignments/index' => 'assignments#index', as: :index_assignments
+
+  get 'assignments/new' => 'assignments#new', as: :new_assign
+
+  post 'assignments/new_assignments' => 'assignments#new_assignments', as: :new_assignments
+
+  get 'assignments/show' => 'assignments#show', as: :show_assignments
+  
+  get 'assignments/edit' => 'assignments#edit', as: :edit_assignments
+
+  patch 'assignments/update' => 'assignments#update', as: :update_assignments
+
+  delete 'assignments/destroy' => 'assignments#destroy', as: :delete_assignments 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

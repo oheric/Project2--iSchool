@@ -18,6 +18,7 @@ class StudentsController < ApplicationController
     end
   end
 
+
   def show
     @student = Student.find(params[:student])
   end
@@ -29,7 +30,7 @@ class StudentsController < ApplicationController
 
   def update
     @student = Student.find(params[:student])
-    if @student.update
+    if @student.update_attributes(params.require(:student).permit(:firstname))
       redirect_to students_path
     else
       render 'edit'
@@ -37,15 +38,17 @@ class StudentsController < ApplicationController
   end
 
   def destroy
-    @student = Student.find(params[:student])
+    # @student = Student.find(params[:student])
     @student.destroy
     redirect_to students_path
 
   end
-end
-  
+
   private
     def student_params
-      params.require(:student).permit(:firstname, :lastname, :classno, :grade, :notes)
+      params.require(:student).permit(:firstname, :lastname, :classno, :grade, :notes, assignment_ids: [])
     end
+end
+  
+
 
