@@ -13,14 +13,39 @@
         <td><%=@student.grade %></td>
         <td><%=@student.notes %></td>
       </tr>
+     
 
 </table>  
+<h3>Assigments</h3>
+<%@student.assignments.each do |a| %>
+<div><strong>Name: </strong><%=a.name %></div>
+<div><strong>Score: </strong><%=a.grade %></div>
+<div><strong>Notes: </strong><%=a.notes %></div>
+<% end %>
 
-<h3>data from the parent record</h3>
-<%= @student.firstname%>
-<p>Here is data from all the detail records that match: <%=@student_assignment_list%></p>
+<h2>New Assignment</h2>
 
-<%= link_to 'Create a new assignment', new_assign_path %><br>
+<%= form_for(@assignment, :url => {:action => :new_assignments, :controller => :students}) do |f| %>
+<%= hidden_field_tag :student_id, @student.id %>
+
+<div class = "field">
+  <%= f.label :name%><br>
+  <%= f.text_field :name %>
+</div>
+<div class = "field">
+  <%= f.label :grade%><br>
+  <%= f.text_field :grade%>
+</div>
+<div class ="field">
+  <%= f.label :notes%><br>
+  <%= f.text_area :notes%>
+</div>
+<div class = "actions">
+  <%= f.submit %>
+</div>
+<% end %>
+
+
 
 <%= link_to 'Back', students_path %>
 <%= link_to 'Edit', edit_path(:student => @student.id) %>

@@ -13,6 +13,13 @@
    <td><strong>Grade Level</strong><%= s.grade %></td>
    <td><strong>Notes</strong><%= s.notes %></td>
 
+
+
+
+        </div>
+  
+
+
  <td><%= link_to 'More', show_path(:student => s.id) %></td>
  <td><%= link_to 'Edit', edit_path(:student => s.id) %></td>
  <td><%= link_to 'Delete Student', delete_path(:student => s.id), method: :delete, data: {confirm: 'Are you sure?'} %></td>
@@ -22,3 +29,5 @@
 </table>
 
 <%= link_to 'Add a Student', new_path %><br>
+
+

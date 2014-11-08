@@ -12,14 +12,16 @@ Rails.application.routes.draw do
   get 'sessions/create' => 'sessions#create'
 
 
-  get 'students/index', as: :students
+  get 'students/index' => 'students#index', as: :students
 
 
   get 'students/new' => 'students#new', as: :new
 
   post 'students/new_students' => 'students#new_students', as: :new_students
 
-  get 'students/:student' => 'students#show', as: :show
+  get 'students/show' => 'students#show', as: :show
+  
+  post 'students/new_assignments' => 'students#new_assignments', as: :new_assignments
   
   get 'students/:student/edit' => 'students#edit', as: :edit
 
@@ -27,20 +29,6 @@ Rails.application.routes.draw do
 
   delete 'students/:student' => 'students#destroy', as: :delete 
 
-  
-  get 'assignments/index' => 'assignments#index', as: :index_assignments
-
-  get 'assignments/new' => 'assignments#new', as: :new_assign
-
-  post 'assignments/new_assignments' => 'assignments#new_assignments', as: :new_assignments
-
-  get 'assignments/show' => 'assignments#show', as: :show_assignments
-  
-  get 'assignments/edit' => 'assignments#edit', as: :edit_assignments
-
-  patch 'assignments/update' => 'assignments#update', as: :update_assignments
-
-  delete 'assignments/destroy' => 'assignments#destroy', as: :delete_assignments 
 
 
   # The priority is based upon order of creation: first created -> highest priority.
