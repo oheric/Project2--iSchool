@@ -30,7 +30,7 @@ class StudentsController < ApplicationController
 
   def update
     @student = Student.find(params[:student])
-    if @student.update_attributes(params.require(:student).permit(:firstname))
+    if @student.update_attributes(student_params)
       redirect_to students_path
     else
       render 'edit'

@@ -18,7 +18,10 @@
 
 <h3>data from the parent record</h3>
 <%= @student.firstname%>
-<p>Here is data from all the detail records that match: <%=@join_list%></p>
+<p>Here is data from all the detail records that match: <%=@student_assignment_list%></p>
+
+<%= link_to 'Create a new assignment', new_assign_path %><br>
 
 <%= link_to 'Back', students_path %>
 <%= link_to 'Edit', edit_path(:student => @student.id) %>
+

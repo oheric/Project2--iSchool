@@ -8,7 +8,7 @@ class PhotosController < ApplicationController
   def create
     # Find our parent decision that we should attach to
     @photo = current_user.photos.new(photo_params)
-    @photo.date ||= DateTime.now
+    #@photo.date ||= DateTime.now
     # Attach this criterion to a decision
     if @photo.save
       redirect_to users_path

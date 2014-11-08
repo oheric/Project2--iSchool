@@ -31,7 +31,7 @@ def assignments
   end
 
   # some way of showing a list
-  def join_list
+  def assignment_list
     assignments_string = ""
     assignments.each do |one_assignment|
       assignments_string += " " + one_assignment.name
