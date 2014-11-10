@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
 			# Store as a cookie in the users' browser the ID of them,
 			# indicating that they are logged in
 			session[:user_id] = u.id.to_s
-			redirect_to students_path, notice: "Logged in!"
+			redirect_to courses_path, notice: "Logged in!"
 		else
 			# Go back to the login page
 			flash.now.alert = "Email or password is invalid"

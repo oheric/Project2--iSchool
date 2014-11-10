@@ -1,0 +1,17 @@
+<%= form_for(@course, :url => {:action => :create, :controller => :courses} ) do |f| %>
+
+<%= hidden_field_tag :course_id, @course.id %>
+
+
+    <div class="field">
+      <%= f.label :name %><br>
+      <%= f.text_field :name %>
+    </div>
+    <div class="field">
+      <%= f.label :schoolyear %><br>
+      <%= f.text_field :schoolyear %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+<% end %>

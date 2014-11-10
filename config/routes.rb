@@ -1,5 +1,14 @@
 Rails.application.routes.draw do
-  root 'sessions#new'
+  get 'courses/index' => 'courses#index', as: :courses
+  get 'courses/show' => 'courses#show', as: :show_course
+  get 'course/indexstudent' => 'courses#indexstudent', as: :index_student
+  get 'courses/new' => 'courses#new', as: :new_course
+  get 'courses/newstudentcourse' => 'courses#newstudentcourse', as: :new_student_course
+  post 'courses/new_students' => 'courses#new_students', as: :new_student2
+  post 'courses/create' => 'courses#create', as: :create_course
+  delete 'courses/destroy' => 'courses#destory', as: :delete_course
+
+  root 'home#index'
   
   resource :sessions, only: [:new, :destroy, :create]
   resource :photos

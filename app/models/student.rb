@@ -7,6 +7,11 @@ class Student
   field :grade, type: String
   field :notes, type: String
 
-embeds_many :assignments
+  belongs_to :course
+  
+  has_many :assignments
+
+  
+  
 
 end

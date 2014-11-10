@@ -8,15 +8,14 @@ class StudentsController < ApplicationController
     @student = Student.new
   end
 
-  def new_students
-    @student = Student.new(student_params)
-
-    if @student.save
-      redirect_to students_path
-    else
-      redirect_to @student, notice: 'there was an error creating a new student'
-    end
-  end
+  #def new_students
+   # @id = params[:course_id]
+    #@course = Course.find(@id)
+    #@course.students << Student.new(params.require(:student).permit(:firstname, :lastname, :classno, :grade, :notes))
+    #if @course.save
+     # redirect_to show_course_path(:course => @id)
+    #end
+  #end
 
 
   def show
