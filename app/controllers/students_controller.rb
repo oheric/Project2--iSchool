@@ -9,12 +9,12 @@ class StudentsController < ApplicationController
   end
 
   def new_students
-    @student = Student.new(student_params)
+   @student = Student.new(student_params)
 
-    if @student.save
-      redirect_to students_path
-    else
-      redirect_to @student, notice: 'there was an error creating a new student'
+   if @student.save
+    redirect_to students_path
+  else
+    redirect_to @student, notice: "there was an error creating a new student"
     end
   end
 

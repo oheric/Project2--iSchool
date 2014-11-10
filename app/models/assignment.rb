@@ -5,7 +5,7 @@ class Assignment
   field :grade, type: String
   field :notes, type: String
 
- embedded_in :student
+ belongs_to :student
 
 end
 
