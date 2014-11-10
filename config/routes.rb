@@ -23,11 +23,11 @@ Rails.application.routes.draw do
   
   post 'students/new_assignments' => 'students#new_assignments', as: :new_assignments
   
-  get 'students/:student/edit' => 'students#edit', as: :edit
+  get 'students/edit' => 'students#edit', as: :edit
 
-  patch 'students/:student' => 'students#update'
+  patch 'students/update' => 'students#update'
 
-  delete 'students/:student' => 'students#destroy', as: :delete 
+  delete 'students/destroy' => 'students#destroy', as: :delete 
 
 
 

@@ -1,4 +1,4 @@
-class Assignment
+class Assignment 
   include Mongoid::Document
 
   field :name, type: String

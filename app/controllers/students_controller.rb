@@ -39,13 +39,14 @@ class StudentsController < ApplicationController
 
   def update
    @student = Student.find(params[:student])
-  #  if params.has_key?(:student) 
-     if @student.update_attributes(:firstname => params[:student][:firstname], :lastname => params[:student][:lastname], :classno => params[:student][:classno], :grade => params[:student][:grade], :notes => params[:student][:notes])
+   if params.has_key?(:student) 
+     @student.update(student_params) 
       redirect_to students_path
     else
       render 'edit'
     end
   end
+
 
   def destroy
     @student = Student.find(params[:student])
