@@ -1,4 +1,4 @@
-<h1><%=@student.firstname %> <%=@student.lastname %></h1>
+<h1 class="name"><%=@student.firstname %> <%=@student.lastname %></h1>
 
 <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
 
@@ -58,31 +58,40 @@ $(function () {
 </script>
 
 
-<table>
+<table class="table">
   <thead>
   <tr>
-    <th>Class Number</th>
-    <th>Grade</th>
+    
     <th>Notes</th>
   </tr>
   </thead>
 
       <tr>
-        <td><%=@student.classno %></td>
-        <td><%=@student.grade %></td>
         <td><%=@student.notes %></td>
       </tr>
      
 
 </table>  
-<h3>Assignments</h3>
-<%@student.assignments.each do |a| %>
-<div><strong>Name: </strong><%=a.name %></div>
-<div><strong>Score: </strong><%=a.grade %></div>
-<div><strong>Notes: </strong><%=a.notes %></div>
-<% end %>
+<h3 class="header3">Assignments</h3>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Score</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <%@student.assignments.each do |a| %>
+  <tr>
+  <td><%=a.name %></td>
+  <td><%=a.grade %></td>
+  <td><%=a.notes %></td>
+</tr>
+  <% end %>
+</table>
+</div>
 
-<h2>New Assignment</h2>
+<h2 class="header3">New Assignment</h2>
 
 <%= form_for(@assignment, :url => {:action => :new_assignments, :controller => :students}) do |f| %>
 <%= hidden_field_tag :student_id, @student.id %>
@@ -99,14 +108,14 @@ $(function () {
 <div class ="field">
   <%= f.label :notes%><br>
   <%= f.text_area :notes%>
-</div>
+</div><br>
 <div class = "actions">
   <%= f.submit %>
 </div>
 <% end %>
 
 
+<div class="footer"><br>
+<%= link_to 'Back', show_course_path %><br>
 
-<%= link_to 'Back', students_path %>
-<%= link_to 'Edit', edit_path(:student => @student.id) %>
-
+</div>

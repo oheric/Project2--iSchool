@@ -9,7 +9,7 @@ class CoursesController < ApplicationController
   end
 
   def show
-    @course = Course.find(params[:course])
+    #@course = Course.find(params[:course])
     @students = Student.all
   end
 
@@ -35,7 +35,7 @@ def new_students
     @student = Student.new(student_params)
 
    if @student.save
-    redirect_to index_student_path
+    redirect_to show_course_path
   else
     redirect_to @student, notice: "there was an error creating a new student"
     end

@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   post 'courses/create' => 'courses#create', as: :create_course
   delete 'courses/destroy' => 'courses#destory', as: :delete_course
 
-  root 'home#index'
+  root 'home#index', as: :home
   
   resource :sessions, only: [:new, :destroy, :create]
   resource :photos

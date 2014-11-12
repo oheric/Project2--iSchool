@@ -38,8 +38,7 @@ class StudentsController < ApplicationController
 
   def update
    @student = Student.find(params[:student])
-   if params.has_key?(:student) 
-     @student.update(student_params) 
+   if @student.update(student_params) 
       redirect_to students_path
     else
       render 'edit'
@@ -50,7 +49,7 @@ class StudentsController < ApplicationController
   def destroy
     @student = Student.find(params[:student])
     @student.destroy
-    redirect_to students_path
+    redirect_to show_course_path
 
   end
 

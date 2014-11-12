@@ -15,9 +15,7 @@
 </head>
 <body>
 	<%#so this next part gives us a sign out button if we are logged in. If we are not logged in, there is a sign up and sign out button. %>
-	<head>
 
-</head>
 
 <div>
   <nav class="navbar navbar-inverse" role="navigation">
@@ -31,6 +29,8 @@
         <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand" href="#">iSchool</a>
+
+        <!--<img alt="iSchool" src="http://i.imgur.com/BXctogn.png"</a> -->
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -52,19 +52,22 @@
 
 
 
-  <div>
     <% if current_user %>
-    	Welcome <%= current_user.email %>  <%= link_to "Sign out", sessions_path, method: :delete %>
+  <div class ="signups">
+    	Welcome <%= current_user.email %> <br> <%= link_to "Sign out", sessions_path, method: :delete %>
+  </div>
     <% else %>
-   
+   <div class="but1">
       <%= button_to "Teacher Sign Up", new_user_path, method: :get %>
-    
+    </div>
+    <div class="but2">
       <%= button_to "Teacher Log In", new_session_path, method: :get %>
+    </div>
   	<% end %>
+
 
 <%= yield %>
 
-	</div>
 
 </body>
 </html>

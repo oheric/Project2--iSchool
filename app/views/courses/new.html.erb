@@ -1,3 +1,4 @@
+<div class="main">
 <%= form_for(@course, :url => {:action => :create, :controller => :courses} ) do |f| %>
 
 <%= hidden_field_tag :course_id, @course.id %>
@@ -15,3 +16,4 @@
       <%= f.submit %>
     </div>
 <% end %>
+</div>
