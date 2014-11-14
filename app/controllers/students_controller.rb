@@ -8,6 +8,7 @@ class StudentsController < ApplicationController
     @student = Student.new
   end
 
+<<<<<<< HEAD
   #def new_students
    # @id = params[:course_id]
     #@course = Course.find(@id)
@@ -16,6 +17,17 @@ class StudentsController < ApplicationController
      # redirect_to show_course_path(:course => @id)
     #end
   #end
+=======
+  def new_students
+   @student = Student.new(student_params)
+
+   if @student.save
+    redirect_to students_path
+  else
+    redirect_to @student, notice: "there was an error creating a new student"
+    end
+  end
+>>>>>>> 726cec383f2eccbcd3d71951e13fae0430b955ed
 
 
   def show

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+<<<<<<< HEAD
   get 'courses/index' => 'courses#index', as: :courses
   get 'courses/show' => 'courses#show', as: :show_course
   get 'course/indexstudent' => 'courses#indexstudent', as: :index_student
@@ -9,6 +10,10 @@ Rails.application.routes.draw do
   delete 'courses/destroy' => 'courses#destory', as: :delete_course
 
   root 'home#index', as: :home
+=======
+
+  root 'home#index'
+>>>>>>> 726cec383f2eccbcd3d71951e13fae0430b955ed
   
   resource :sessions, only: [:new, :destroy, :create]
   resource :photos
